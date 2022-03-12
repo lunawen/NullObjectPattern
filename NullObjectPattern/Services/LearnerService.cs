@@ -16,11 +16,11 @@ namespace NullObjectPattern.Services
             // go get the Learner's id from a JWT token cookie
             // or by some other appropriate means
             
-            int learnerId = 1;
+            int learnerId = -1;
             
             var learner = _repo.GetLearner(learnerId);
             
-            if (learner == null) throw new NullReferenceException();
+            if (learner == null) return new NullLearner();
 
             return learner;
         }
